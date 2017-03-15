@@ -16,6 +16,8 @@
         <mapper resource="mapper/NavPointMapper.xml"/>
         <mapper resource="mapper/NavMapMapper.xml"/>
         <mapper resource="mapper/NavRoutineMapper.xml"/>
+        <mapper resource="mapper/AdminMapper.xml"/>
+        <mapper resource="mapper/LogMapper.xml"/>
     </mappers>
 
 </configuration>

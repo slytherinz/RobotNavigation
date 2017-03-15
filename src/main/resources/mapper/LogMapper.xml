@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.dao.LogDao">
+    <resultMap id="logResultMap" type="log">
+        <id property="id" column="id"/>
+        <result property="adminId" column="admin_id"/>
+        <result property="createDate" column="createdate"/>
+        <result property="content" column="content"/>
+        <result property="operation" column="operation"/>
+    </resultMap>
+    <insert id="insertLog" parameterType="log">
+        INSERT INTO map_station_log (admin_id,createdate,content,operation) VALUES (#{userId},NOW(),#{content},#{operation})
+    </insert>
+</mapper>
