@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.dao.NavPointDao">
+    <resultMap id="navPointResultMap" type="navpoint">
+        <id property="id" column="id"/>
+        <result property="x" column="x"/>
+        <result property="y" column="y"/>
+        <result property="lift" column="lift"/>
+        <result property="direction" column="direction"/>
+        <result property="remain" column="remain"/>
+    </resultMap>
+    <insert id="insertIntoPoint" parameterType="navpoint">
+        INSERT INTO map1_station_point (id,x,y,lift,direction,remain) VALUES (#{id},#{x},#{y},#{lift},#{direction},#{remain})
+    </insert>
+    <select id="selectPointById" parameterType="int" resultMap="navPointResultMap">
+        SELECT * FROM map1_station_point WHERE id = #{id}
+    </select>
+    <select id="selectAllPoints">
+        SELECT * FROM map1_station_point
+    </select>
+    <delete id="deletePointById" parameterType="int">
+        DELETE FROM map1_station_point WHERE id = #{id}
+    </delete>
+</mapper>

@@ -1,0 +1,359 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+          <title>巡航</title>
+                <meta http-equiv="Content-Type"content="text/html;charset=utf-8"/>
+            <link rel="stylesheet" type="text/css" href="style.css">
+
+                <script src="js/jquery-1.10.2.min.js"></script>
+             <script src="js/jquery-ui.js"></script>
+                 <!-- 拖动和放大缩小 -->
+               <script src="js/e-smart-zoom-jquery.min.js"></script>
+
+          <script src="js/drag.js"></script>
+           
+        <!--[if lt IE 9]>
+            <script src="http://libs.useso.com/js/html5shiv/3.6/html5shiv.min.js"></script>
+        <![endif]-->
+
+          <script src="js/main.js"></script>
+        </head>
+        <body>
+             
+        <div class= "header">
+        <img src="image/logo1.png" class='logo'>
+          <div class= "navbar">
+
+         <a href="7Intro.html"><img src="image/06.png" style="    width: 61px;display: inline-block;position: relative;vertical-align: middle;bottom: 6px;margin-right: -6px;"></a>
+            <a href="0index.html"><div class="barblock "><p class="headerfont">首页<br>Home</p></div></a>
+            <a href="4User.html"><div class="barblock " ><p class="headerfont">用户<br>User</p></div></a>
+            <a href="1CreateMap.html"><div class="barblock "><p class="headerfont">地图<br>Map</p></div></a>
+            <a href="2RoutinePlan.html"><div class="barblock"><p class="headerfont">路径<br>Route</p></div></a>
+            <a href="3AutoDrive.html"><div class="barblock active"><p class="headerfont">巡航<br>Cruise</p></div></a>
+           <a href="6Set.html"><img src="image/10.png" class="active1"></a>
+          
+            
+          </div>
+        </div>
+       <!--  //头部结束 -->
+
+<div class="maincontent">
+      
+      
+            <div class="leftSide">
+              <img src="image/logo2.png" style="width:150px;">
+              <img src="image/logo3.jpg" style="width:160px;">
+
+              <div class="loginWindow">
+                <p class="windowFont_head">登录</p>
+                <div class="window_neirong">
+                <p class="windowFont">Username/账号<a href="###" class="blueLink">注册</a></p>
+                <input  name="name" type="text" class="text" />
+                <p class="windowFont">Password/密码</p>
+                <input  name="name" type="text" class="text"  />
+                <p class="windowFont"><input type="checkbox" style="    margin: -5px 3px 14px 0px;">Remember me/记住账号<a href="###" class="blueLink">忘记密码</a></p>
+                </div>
+              </div>
+              <div class="zhuangtaiWindow">
+                <p class="windowFont_head">状态</p>
+                <div class="window_neirong">
+                  <p class="windowFont"><img src="image/1.png" class="robot_zhuangtai mt8">E.ROBOTIC #01<span class="zhuangtai_span">在线</span></p>
+                  <p class="windowFont"><img src="image/1.png" class="robot_zhuangtai mt8">E.ROBOTIC #02<span class="zhuangtai_span">在线</span></p>
+                  <p class="windowFont"><img src="image/2.png" class="robot_zhuangtai mt8">E.ROBOTIC #03<span class="zhuangtai_span">充电</span></p>
+                  <p class="windowFont"><img src="image/3.png" class="robot_zhuangtai mt8">E.ROBOTIC #04<span class="zhuangtai_span">丢失</span></p>
+                  <p class="windowFont"><img src="image/4.png" class="robot_zhuangtai mt8">E.ROBOTIC #05<span class="zhuangtai_span">故障</span></p>
+                  <p class="windowFont"><img src="image/5.png" class="robot_zhuangtai mt8">E.ROBOTIC #06<span class="zhuangtai_span">离线</span></p>
+                </div>
+              </div>
+
+            </div>
+        <!-- 右边地图区域 -->
+
+
+        <div class="map">
+        <div class="fangxiang" id="positionButton">
+                                          <img src="image/45.png" style="width:50px;position:absolute;left: 50px;top: 60px;" id="centerPoint">
+                                          <span class="windowFont" style="    position: relative;top: 105px;" id="yingcangcengTishi">点击此处，出现操控面板</span>
+                                          <div id="yincangceng" style="display:none">
+                                          <img src="image/42.png" class="right_arrow" id="rightPosition">
+                                          <img src="image/42.png" class="left_arrow" id="leftPosition">
+                                          <img src="image/42.png" class="up_arrow" id="topPosition">
+                                          <img src="image/42.png" class="down_arrow" id="bottomPosition">
+                                          <img src="image/40.png" id="PauseButton" style="width:80px;position: absolute;left: 80px;top: 153px;" ><br>
+                                          <img src="image/41.png" id="restartButton" style="width:80px;position: absolute;left: 80px;top: 175px;">
+                                        </div></div>
+
+<script type="text/javascript">
+  
+  $(document).ready(function(){
+    $("#centerPoint").one('click',function(event) {
+       $("#yingcangcengTishi").hide();
+    });
+          $("#centerPoint").click(function(event) {
+            $("#yincangceng").fadeToggle();
+          });
+
+
+  });
+</script>
+
+
+
+                <div class="DrakGrayWindow" >
+                  <div class="jianbian" style="width:400px;display:inline-block;margin-right:20px;">
+                    <p >当前地图<span class="zuogang" style="padding-left:0px;"> 
+                    <select name="map" id="map" style="width: 300px;">
+                    <option value="map1">Map-GIS-c01</option>
+                    </select></span></p>
+                  </div>
+                  <div class="jianbian" style="width:400px;display:inline-block">
+                    <p >当前路径<span class="zuogang" style="padding-left:0px;"> 
+                    <select name="routine" id="routine" style="width: 300px;">
+                      <option value="none">请选择路径</option>
+                    <option value="routine1">Map-GIS-c01-lj01</option>
+                    <option value="routine2">Map-GIS-c01-lj02</option>
+                    <option value="routine3">Map-GIS-c01-lj03</option>
+                    </select></span></p>
+                  </div>
+                  <div style="padding: 5px;width: 912px;background-color: white;height: 760px;border-radius: 15px;">
+                 <div class="mapcontain"  >
+
+                  <div id="mapImage">
+                  <img src="image/n.png" style="    position: absolute;right: 12px;    z-index: 1000;">
+                  <canvas id="canvas" width="900" height="750"></canvas>
+
+                <img src="image/map.png" style="width:900px;height:750px;" id="mapImage"></div>
+                
+                        <div class="robot_position"  id="robot_1" rel="1" style="top: 166px;left: 448px;"><img src="image/1.png"><p>E.ROBOTIC #01</p></div>
+                        <div class="robot_position" id="robot_2" rel="2" style="top: 300px;left: 600px;"><img src="image/1.png"><p>E.ROBOTIC #02</p></div>
+                        <div class="robot_position" id="robot_3" rel="3" style="top: 450px;left: 800px;"><img src="image/2.png"><p>E.ROBOTIC #03</p></div>
+                                        
+                                        
+            </div> </div>
+                </div>
+                        <script type="text/javascript">
+                        var robot_name;
+                        var robot_choosen=0;
+                        var if_pause=0;
+
+                              $(".robot_position").click(function(event) {
+                                $(".robot_position").children('p').css("color","black");
+                                $(this).children('p').css("color","red");
+                                robot_name=$(this).attr("rel");
+                               
+                                event.stopPropagation();
+                                 robot_choosen=1;
+                              });
+
+                              
+$(".mapcontain").click(function(e) {
+ $(".robot_position").children('p').css("color","black");
+
+ robot_choosen=0;
+});
+
+
+
+
+
+
+
+
+$("#positionButton").click(function(e) {
+  event.stopPropagation();
+});
+
+
+
+
+$("#PauseButton").click(function(e) {
+  if_pause=1;
+
+});
+$("#restartButton").click(function(e) {
+  if_pause=0;
+});
+
+
+
+
+
+$("#topPosition").click(function(e) {
+  
+  if(robot_choosen==1&&if_pause==1){
+        
+           
+           
+           var robot_position_top= parseInt($(".robot_position[rel="+robot_name+"]").css("top"))-10;
+           $(".robot_position[rel="+robot_name+"]").css("top",robot_position_top+"px");
+         
+
+
+  }
+  else{
+    alert("请先选中机器人或者暂停机器人");
+  }
+});
+
+$("#leftPosition").click(function(e) {
+  
+  if(robot_choosen==1&&if_pause==1){
+        
+           
+           var robot_position_left=parseInt( $(".robot_position[rel="+robot_name+"]").css("left"))-10;
+          
+           $(".robot_position[rel="+robot_name+"]").css("left",robot_position_left+"px");
+         
+
+
+  }  else{
+    alert("请先选中机器人或者暂停机器人");
+  }
+});
+
+$("#rightPosition").click(function(e) {
+  
+  if(robot_choosen==1&&if_pause==1){
+        
+          
+           
+           var robot_position_right= parseInt($(".robot_position[rel="+robot_name+"]").css("left"))+10;
+          $(".robot_position[rel="+robot_name+"]").css("left",robot_position_right+"px");
+         
+
+
+  }  else{
+    alert("请先选中机器人或者暂停机器人");
+  }
+});
+
+$("#bottomPosition").click(function(e) {
+  
+  if(robot_choosen==1&&if_pause==1){
+        
+           
+         
+           var robot_position_bottom= parseInt($(".robot_position[rel="+robot_name+"]").css("top"))+10;
+           $(".robot_position[rel="+robot_name+"]").css("top",robot_position_bottom+"px");
+         
+
+
+  }  else{
+    alert("请先选中机器人或者暂停机器人");
+  }
+});
+
+
+
+                        </script>
+                   <div class="DrakGrayWindow" >
+                      <div class="jianbian" >
+                        <p >实时全景影像</p>
+                      </div>
+                      <div id="cameraWindow" style="width: 900px;height: 170px;overflow: hidden;position:relative；    padding-left: 7px;">
+                        <iframe  src="http://192.168.1.14/" width="1600"height="600"marginheight="0"marginwidth="0"scrolling="no" style="margin-top: -193px; transform: scale3d(0.56, 0.56, 0.56);    margin-left: -353px;"></iframe>
+                          <div class="toumingceng" style=" width: 900px; height: 170px;position: absolute; top: 54px;background-color: black;opacity: 0; ">
+                          </div>
+                          <script type="text/javascript">
+                          $(".toumingceng").click(function(event) {
+
+  window.open ('http://192.168.1.14', 'newwindow', 'height=600, width=1200, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=no, status=no') 
+
+});
+                          </script>
+                      </div>
+
+
+                   </div>
+
+
+
+
+
+	     			
+
+
+
+                   <div class="DrakGrayWindow" >
+                     <div class="jianbian" style="width:400px;display:inline-block;margin-right:20px;">
+                    <p >当前路径<span class="zuogang" style="padding-left:0px;"> 
+                    <select name="routine" style="width: 300px;" >
+                      <option value="none">请选择路径</option>
+                    <option value="routine1">Map-GIS-c01-lj01</option>
+                    <option value="routine2">Map-GIS-c01-lj02</option>
+                    <option value="routine3">Map-GIS-c01-lj03</option>
+                    </select>
+                    </span></p>
+                  </div>
+                  <div class="jianbian" style="width:400px;display:inline-block">
+                    <p >拍摄点<span class="zuogang" style="padding-left:0px;"> 
+                    <select name="paishedian" style="width: 300px;">
+                    <option value="none">请选择拍摄点</option>
+                    <option value="paishedian1">拍摄点01</option>
+                    <option value="paishedian2">拍摄点02</option>
+                    </select></span></p>
+                  </div>
+                  <div style="width: 917px;overflow: auto;">
+                  <div style="width: 917px;" id="slideContain">
+                  <div class="whiteBack1"></div>
+                  <div class="whiteBack1"></div>
+                  <div class="whiteBack1"></div>
+                  <div class="whiteBack1"></div>
+                   <div class="whiteBack1"></div>
+                    <div class="whiteBack1"></div>
+                     <div class="whiteBack1"></div>
+                     </div></div>
+                   </div>
+
+                   <script type="text/javascript">
+                  
+                   $(document).ready(function(){
+                    $("#slideContain").css("width","1614px");
+                   });
+                   </script>
+
+
+
+
+                <div class="DrakGrayWindow" >
+                  <div class="robot_shuxing">
+                    <div class="jianbian" style="    width: 270px;">
+                    <p >当前机器人<span class="zuogang" style="padding-left:0px;"> 
+                    <select name="robot" >
+                    <option value="robot1">E.ROBOTIC #01</option>
+                    <option value="robot1">E.ROBOTIC #02</option>
+                    <option value="robot1">E.ROBOTIC #03</option>
+                    </select></span></p>
+                  </div>
+
+                  <img src="image/1.png" style="width:20px;    vertical-align: top;margin-top: 25px; margin-left: 20px;">
+                 <div class="robot_info_font">
+                    <p>当前状态：运行</p>
+                    <p>运行地图：Map-GIS-c01</p>
+                    <p>运行路径：Map-GIS-c01-lj01</p>
+                    <p>运行时间：当前路径运行时间1小时22分</p>
+                     <p>总运行时间3小时11分</p>
+                    </div>
+                  
+                  </div>
+                  <img src="image/49.png" class="chuanganqi"><img src="image/50.png" class="chuanganqi"><img src="image/51.png" class="chuanganqi">
+                </div>
+                
+
+
+
+        </div>
+
+       </div>
+      
+
+
+
+
+
+
+          <div class="bottomLine"><div class="cpright"> ● Copyright 2016 power by Chaoyingkeji UESTC<img src="image/footer.jpg"></div></div>
+          
+        </body>
+
+        </html>

@@ -1,0 +1,213 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+		<head>
+			    <title>首页</title>
+                <meta http-equiv="Content-Type"content="text/html;charset=utf-8"/>
+		        <link rel="stylesheet" type="text/css" href="style.css">
+
+                <script src="js/jquery-1.10.2.min.js"></script>
+				     <script src="js/jquery-ui.js"></script>
+				         <!-- 拖动和放大缩小 -->
+				       <script src="js/e-smart-zoom-jquery.min.js"></script>
+
+				  <script src="js/drag.js"></script>
+           
+				<!--[if lt IE 9]>
+				    <script src="http://libs.useso.com/js/html5shiv/3.6/html5shiv.min.js"></script>
+				<![endif]-->
+
+          <script src="js/main.js"></script>
+        </head>
+        <body>
+             
+        <div class= "header">
+        <img src="image/logo1.png" class='logo'>
+        	<div class= "navbar">
+
+          <a href="7Intro.html"><img src="image/06.png" style="    width: 61px;display: inline-block;position: relative;vertical-align: middle;bottom: 6px;margin-right: -6px;"></a>
+            <a href="0index.html"><div class="barblock active"><p class="headerfont">首页<br>Home</p></div></a>
+            <a href="4User.html"><div class="barblock " ><p class="headerfont">用户<br>User</p></div></a>
+            <a href="1CreateMap.html"><div class="barblock "><p class="headerfont">地图<br>Map</p></div></a>
+            <a href="2RoutinePlan.html"><div class="barblock"><p class="headerfont">路径<br>Route</p></div></a>
+            <a href="3AutoDrive.html"><div class="barblock "><p class="headerfont">巡航<br>Cruise</p></div></a>
+            <a href="6Set.html"><img src="image/10.png" class="active1" ></a>
+          
+            
+          </div>
+        </div>
+       <!--  //头部结束 -->
+
+<div class="maincontent">
+      
+      
+            <div class="leftSide">
+              <img src="image/logo2.png" style="width:150px;">
+              <img src="image/logo3.jpg" style="width:160px;">
+
+              <div class="loginWindow">
+                <p class="windowFont_head">登录</p>
+                <div class="window_neirong">
+                <p class="windowFont">Username/账号<a href="###" class="blueLink" id="zhuceButton">注册</a></p>
+                <input  name="name" type="text" class="text" />
+                <p class="windowFont">Password/密码</p>
+                <input  name="name" type="text" class="text"  />
+                <p class="windowFont"><input type="checkbox" style="    margin: -5px 3px 14px 0px;">Remember me/记住账号<a href="###" class="blueLink">忘记密码</a></p>
+                </div>
+               <input type="button" value="登录" class="jianbian_button" style="width:200px;">
+              </div>
+              <div class="zhuangtaiWindow">
+                <p class="windowFont_head">状态</p>
+                <div class="window_neirong">
+                  <p class="windowFont"><img src="image/1.png" class="robot_zhuangtai mt8">E.ROBOTIC #01<span class="zhuangtai_span">在线</span></p>
+                  <p class="windowFont"><img src="image/1.png" class="robot_zhuangtai mt8">E.ROBOTIC #02<span class="zhuangtai_span">在线</span></p>
+                  <p class="windowFont"><img src="image/2.png" class="robot_zhuangtai mt8">E.ROBOTIC #03<span class="zhuangtai_span">充电</span></p>
+                  <p class="windowFont"><img src="image/3.png" class="robot_zhuangtai mt8">E.ROBOTIC #04<span class="zhuangtai_span">丢失</span></p>
+                  <p class="windowFont"><img src="image/4.png" class="robot_zhuangtai mt8">E.ROBOTIC #05<span class="zhuangtai_span">故障</span></p>
+                  <p class="windowFont"><img src="image/5.png" class="robot_zhuangtai mt8">E.ROBOTIC #06<span class="zhuangtai_span">离线</span></p>
+                </div>
+              </div>
+
+            </div>
+        <!-- 右边地图区域 -->
+                  <div class="floatZhuce" style="display:none">
+                  <img src="image/close-button.png" style="position:absolute;left: 333px;top: -24px;" id="closeButton">
+                     <p class="windowFont">Username/账号</p>
+                <input  name="name" type="text" class="text"  />
+                     <p class="windowFont">Password/密码</p>
+                <input  name="name" type="text" class="text"  />
+                <p class="windowFont">Confirm/确认密码</p>
+                <input  name="name" type="text" class="text"  />
+                <p class="windowFont">Name/真实姓名</p>
+                <input  name="name" type="text" class="text"  />
+                <p class="windowFont">Sex/性别</p>
+                <input  name="sex" value="男" type="radio"><span class="windowFont">男</span><input  name="sex" value="女" type="radio"><span class="windowFont">女</span>
+                <p class="windowFont">所在部门</p>
+                <input  name="name" type="text" class="text"  />
+                <p class="windowFont">职位</p>
+                <input  name="name" type="text" class="text"  />
+                <p class="windowFont">办公室电话</p>
+                <input  name="name" type="text" class="text"  />
+                <p class="windowFont">联系电话</p>
+                <input  name="name" type="text" class="text"  />
+                <input type="button" value="注册" class="jianbian_button" style="width: 100px;bottom: -12px;left: -29px;">
+                  </div>
+                  <script type="text/javascript">
+
+                         
+
+                                  $("#zhuceButton").click(function(e){
+                                        e.preventDefault();
+                                        
+                                        
+                                    $(".floatZhuce").show();
+                                    return false;
+                                  });
+
+
+                                  
+                                  $("#closeButton").click(function(event) {
+                                   $(".floatZhuce").hide();
+                                  });
+
+
+
+                          
+
+
+
+                  </script>
+
+        <div class="map">
+                <div class="DrakGrayWindow" >
+                  <div class="jianbian">
+                    <p >当前地图<span class="zuogang"> 
+                    <select name="map" id="map" style="width: 502px;">
+                    <option value="map1">地图1</option>
+                    </select></span></p>
+                  </div>
+                 <div class="mapcontain"  >
+
+                  <img src="image/n.png" style="    position: absolute;right: 12px;">
+                <img src="image/map.png" style="width:900px;height:750px;">
+                        <div class="robot_position" style="top: 166px;left: 448px;"><img src="image/1.png"><p>E.ROBOTIC #02</p></div>
+                        <div class="robot_position" style="top: 300px;left: 600px;"><img src="image/1.png"><p>E.ROBOTIC #01</p></div>
+                        <div class="robot_position" style="top: 450px;left: 800px;"><img src="image/2.png"><p>E.ROBOTIC #03</p></div>
+ 
+            </div> 
+                </div>
+                <div class="DrakGrayWindow" >
+                  <div class="robot_shuxing">
+                    <div class="jianbian" style="    width: 270px;">
+                    <p >当前机器人<span class="zuogang" style="padding-left:0px;"> 
+                    <select name="robot" id="robot">
+                    <option value="robot0">E.ROBOTIC #01</option>
+                    <option value="robot1">E.ROBOTIC #02</option>
+                    <option value="robot2">E.ROBOTIC #03</option>
+                    </select></span></p>
+                  </div>
+                  <script type="text/javascript">
+                        $("#robot").change(function(event) {
+
+                          var robot_value=$("#robot").val();
+                          
+                          if(robot_value=="robot0"){
+                                    $("#robot_test_1").attr("src","image/1.png");
+                                    $("#yunxingzhuangtai").html("当前状态：运行");
+                                    $("#yunxinghditu").html("运行地图：Map-GIS-c01");
+                                    $("#yunxinglujing").html("运行路径：Map-GIS-c01-lj01");
+                                     $("#yunxingshijian").html("运行时间：当前路径运行时间1小时22分");
+                                    $("#yunxingzongshijian").html("总运行时间3小时11分");
+
+
+                          }
+                          if(robot_value=="robot1"){
+                                    $("#robot_test_1").attr("src","image/1.png");
+                                    $("#yunxingzhuangtai").html("当前状态：运行");
+                                    $("#yunxinghditu").html("运行地图：Map-GIS-c02");
+                                    $("#yunxinglujing").html("运行路径：Map-GIS-c01-lj02");
+                                     $("#yunxingshijian").html("运行时间：当前路径运行时间2小时22分");
+                                    $("#yunxingzongshijian").html("总运行时间4小时11分");
+                          }
+                          if(robot_value=="robot2"){
+                                    $("#robot_test_1").attr("src","image/2.png");
+                                    $("#yunxingzhuangtai").html("当前状态：充电");
+                                    $("#yunxinghditu").html("运行地图：Map-GIS-c03");
+                                    $("#yunxinglujing").html("运行路径：Map-GIS-c01-lj03");
+                                     $("#yunxingshijian").html("运行时间：当前路径运行时间3小时22分");
+                                    $("#yunxingzongshijian").html("总运行时间5小时11分");
+                          }
+
+                        });
+
+                  </script>
+                  <img src="image/1.png"  id="robot_test_1" style="width:20px;    vertical-align: top;margin-top: 25px; margin-left: 20px;">
+                 <div class="robot_info_font">
+                    <p id="yunxingzhuangtai">当前状态：运行</p>
+                    <p id="yunxinghditu">运行地图：Map-GIS-c01</p>
+                    <p id="yunxinglujing">运行路径：Map-GIS-c01-lj01</p>
+                    <p id="yunxingshijian">运行时间：当前路径运行时间1小时22分</p>
+                     <p id="yunxingzongshijian">总运行时间3小时11分</p>
+                    </div>
+                  
+                  </div>
+                  <img src="image/49.png" class="chuanganqi"><img src="image/50.png" class="chuanganqi"><img src="image/51.png" class="chuanganqi">
+                </div>
+                
+
+
+
+        </div>
+
+       </div>
+      
+
+
+
+
+
+
+          <div class="bottomLine"><div class="cpright"> ● Copyright 2016 power by Chaoyingkeji UESTC<img src="image/footer.jpg"></div></div>
+          
+        </body>
+
+        </html>

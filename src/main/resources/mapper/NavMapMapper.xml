@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.dao.NavMapDao">
+    <resultMap id="navPointResultMap" type="navmap">
+        <id property="id" column="id"/>
+        <result property="ssid" column="ssid"/>
+        <result property="sx" column="sx"/>
+        <result property="sy" column="sy"/>
+        <result property="eid" column="eid"/>
+        <result property="ex" column="ex"/>
+        <result property="ey" column="ey"/>
+        <result property="dist" column="dist"/>
+
+    </resultMap>
+    <select id="getNavMap" resultMap="navPointResultMap">
+        SELECT * FROM map1_station_map
+    </select>
+    <insert id="insertIntoEdge" parameterType="com.ssm.entity.NavMap" useGeneratedKeys="true" keyColumn="id" >
+        INSERT INTO map1_station_map (ssid,sx,sy,eid,ex,ey,dist) VALUES (#{ssid},#{sx},#{sy},#{eid},#{ex},#{ey},#{dist})
+    </insert>
+
+    <select id="findEdge"  resultMap="navPointResultMap">
+        SELECT * FROM  map1_station_map WHERE ssid = #{ssid} AND eid = #{eid}
+    </select>
+    <delete id="deleteEdgeById" parameterType="int">
+        DELETE FROM map1_station_map WHERE ssid = #{id} OR eid = #{id}
+    </delete>
+</mapper>

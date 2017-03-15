@@ -1,0 +1,168 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+		<head>
+			    <title>地图</title>
+                <meta http-equiv="Content-Type"content="text/html;charset=utf-8"/>
+		        <link rel="stylesheet" type="text/css" href="style.css">
+
+                <script src="js/jquery-1.10.2.min.js"></script>
+				     <script src="js/jquery-ui.js"></script>
+				         <!-- 拖动和放大缩小 -->
+				       <script src="js/e-smart-zoom-jquery.min.js"></script>
+
+				  <script src="js/drag.js"></script>
+
+				<!--[if lt IE 9]>
+				    <script src="http://libs.useso.com/js/html5shiv/3.6/html5shiv.min.js"></script>
+				<![endif]-->
+          <!--<script src="js/getcanvaspixelcolor.js" type="text/javascript"></script>-->
+          <script src="js/main.js"></script>
+        </head>
+        <body >
+<div class= "header">
+        <img src="image/logo1.png" class='logo'>
+          <div class= "navbar">
+
+         <a href="7Intro.html"><img src="image/06.png" style="    width: 61px;display: inline-block;position: relative;vertical-align: middle;bottom: 6px;margin-right: -6px;"></a>
+            <a href="0index.html"><div class="barblock "><p class="headerfont">首页<br>Home</p></div></a>
+            <a href="4User.html"><div class="barblock " ><p class="headerfont">用户<br>User</p></div></a>
+            <a href="1CreateMap.html"><div class="barblock active "><p class="headerfont">地图<br>Map</p></div></a>
+            <a href="2RoutinePlan.html"><div class="barblock"><p class="headerfont">路径<br>Route</p></div></a>
+            <a href="3AutoDrive.html"><div class="barblock "><p class="headerfont">巡航<br>Cruise</p></div></a>
+            <a href="6Set.html"><img src="image/10.png" class="active1"></a>
+          
+            
+          </div>
+        </div>
+       <!--  //头部结束 -->
+       <div class="maincontent">
+      
+      
+            <div class="leftSide">
+              <img src="image/logo2.png" style="width:150px;">
+              <img src="image/logo3.jpg" style="width:160px;">
+
+              <div class="loginWindow" style="    position: relative;">
+                <p class="windowFont_head">登录</p>
+                <div class="window_neirong">
+                <p class="windowFont">Username/账号</p><p class="blueLink" style="float: inherit;    margin-bottom: 18px;">Admin</p>
+                
+                <p class="windowFont">Grade/等级</p><p class="blueLink" style="float: inherit;    margin-bottom: 18px;">管理员</p>
+                
+                <a href="###" class="blueLink" style="position: relative;top: 27px;">查看管理员权限</a>
+                </div>
+               <input type="button" value="登出" class="jianbian_button" style="width: 80px; padding-left: 7px;left: -35px;top: 21px;">
+               <img src="image/34.png" style="position: absolute;top: 41px; height: 121px;right: 29px;">
+              </div>
+              <div class="zhuangtaiWindow">
+                <p class="windowFont_head">状态</p>
+                <div class="window_neirong">
+                  <p class="windowFont"><img src="image/1.png" class="robot_zhuangtai mt8">E.ROBOTIC #01<span class="zhuangtai_span">在线</span></p>
+                  <p class="windowFont"><img src="image/1.png" class="robot_zhuangtai mt8">E.ROBOTIC #02<span class="zhuangtai_span">在线</span></p>
+                  <p class="windowFont"><img src="image/2.png" class="robot_zhuangtai mt8">E.ROBOTIC #03<span class="zhuangtai_span">充电</span></p>
+                  <p class="windowFont"><img src="image/3.png" class="robot_zhuangtai mt8">E.ROBOTIC #04<span class="zhuangtai_span">丢失</span></p>
+                  <p class="windowFont"><img src="image/4.png" class="robot_zhuangtai mt8">E.ROBOTIC #05<span class="zhuangtai_span">故障</span></p>
+                  <p class="windowFont"><img src="image/5.png" class="robot_zhuangtai mt8">E.ROBOTIC #06<span class="zhuangtai_span">离线</span></p>
+                </div>
+              </div>
+
+            </div>
+        <!-- 右边地图区域 -->
+
+
+        <div class="map">
+        <form name="form" method="post" style="display:">
+               <span id="trans">比例尺为：<input type="text" name="2" id="mapScale" value="0" precision="2">;距离左边的偏移量为：X=<input type="text" name="2" id="mapLeft" value="0" >;Y=<input type="text" name="2" id="mapTop" value="0" precision="2" ></span><br>
+               <span id="xypos">X坐标：<input type="text" name="0" id="xpos" value="0">Y坐标：<input type="text" name="1" id="ypos"  value="0"> <input type="text" name="4" id="scroll"  value="0"></span>
+               </form>
+
+
+                <div class="DrakGrayWindow" >
+                  <div class="jianbian">
+                    <p >当前地图<span class="zuogang"> 
+                    <select name="map" id="map" style="width: 502px;">
+                    <option value="map1">Map-GIS-c01</option>
+                    </select></span></p>
+                  </div>
+                  <div style="padding: 5px;width: 912px;background-color: white;height: 760px;border-radius: 15px;">
+                 <div class="mapcontain"   >
+                    
+                    <div id="mapImage">
+                    <canvas id="backMap" width="900" height="750" style="position:absolute"></canvas>
+                  <img src="image/n.png" style="    position: absolute;right: 12px;    z-index: 1000;">
+                  <canvas id="canvas" width="900" height="750"></canvas>
+
+                   <img src="image/map.png" style="width:900px;height:750px;">
+				 </div>
+				 </div>
+
+
+            </div> 
+                </div>
+                
+                <!--<script type="text/javascript">-->
+                <!---->
+                  <!--$(document).ready(function () {-->
+                    <!--var img = new Image();-->
+                    <!--img.src = "image/map.png";-->
+                    <!--$(img).load(function () {-->
+                        <!--var canvas = document.getElementById("backMap");-->
+                        <!--var context = canvas.getContext("2d");-->
+                        <!---->
+                        <!--context.drawImage(img, 0, 0,900,750);-->
+                    <!--});-->
+                  <!--});-->
+                <!--</script>-->
+
+
+
+                <div class="DrakGrayWindow" style="height: 170px;">
+                <div style="display:inline-block">
+                  <div class="jianbian">
+                    <p >添加地图<span class="zuogang"><input type="text" class="mima" style="    width: 360px;"><a href="###" class="blueLink" style="    float: none;    font-weight: normal;">浏览</a></span></p> <img src="image/29.png" style="width: 20px;position: relative;top: 5px;">
+                  </div>
+                  <script type="text/javascript">
+                  /*
+                  */
+
+                  </script>
+                  <div class="jianbian" id="startLine" style="    width: 302px; text-align: center;margin-top: 10px;margin-right: 10px;    display: inline-block;">
+                    <p >点击连线 Click to connect</p>
+                  </div>
+                  <div class="jianbian"  id="finishCreate" style="    width: 302px; text-align: center;margin-top: 10px;    display: inline-block;">
+                    <p >结束创建 End create</p>
+                  </div>
+                  <br>
+                  <div class="jianbian" id="mapReset" style="    width: 302px; text-align: center;margin-top: 10px;margin-right: 10px;    display: inline-block;">
+                    <p >重置 Reset</p>
+                  </div>
+                  <div class="jianbian" style="    width: 302px; text-align: center;margin-top: 10px;    display: inline-block;" id="sendMsg">
+                    <p >生成文件 Generate file</p>
+                  </div>
+                  </div>
+                  <div class="basicInfo" >
+                    <p style="line-height:18px;">操作说明
+                    <br>Operation introduction
+                    <br>1.操作说明............................................01
+                    <br>2.操作说明............................................02
+                    <br>3.操作说明............................................03
+                    <br>4.操作说明............................................04
+                    <br>1.操作说明............................................01
+                    <br>2.操作说明............................................02
+                    <br>3.操作说明............................................03
+                    <br>4.操作说明............................................04</p>
+                  </div>
+                </div>
+                
+
+
+
+        </div>
+
+       </div>
+       
+      
+ <div class="bottomLine"><div class="cpright"> ● Copyright 2016 power by Chaoyingkeji UESTC<img src="image/footer.jpg"></div></div>
+        </body>
+
+        </html>

@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "
+    http://www.w3.org/TR/html4/strict.dtd">
+<html>
+        <head>
+                <title>E.ROBOTIK</title>
+                <meta http-equiv="Content-Type"content="text/html;charset=utf-8"/>
+                <link rel="stylesheet" type="text/css" href="style.css">
+
+                <script src="js/jquery-1.10.2.min.js"></script>
+                     <script src="js/jquery-ui.js"></script>
+                         <!-- 拖动和放大缩小 -->
+                       <script src="js/e-smart-zoom-jquery.min.js"></script>
+
+                  <script src="js/drag.js"></script>
+           
+                <!--[if lt IE 9]>
+                    <script src="http://libs.useso.com/js/html5shiv/3.6/html5shiv.min.js"></script>
+                <![endif]-->
+
+          <script src="js/main.js"></script>
+        </head>
+        <body>
+             
+        <div class= "header" onmousedown="mouseDown()" onmouseup="mouseUp()"  onmousemove="mouseMove()">
+        <img src="image/logo1.png" class='logo'>
+            <div class= "navbar">
+
+          <a href="7Intro.html"><img src="image/07.png" style="    width: 61px;display: inline-block;position: relative;vertical-align: middle;bottom: 6px;margin-right: -6px;"></a>
+            <a href="0index.html"><div class="barblock "><p class="headerfont">首页<br>Home</p></div></a>
+            <a href="4User.html"><div class="barblock " ><p class="headerfont">用户<br>User</p></div></a>
+            <a href="1CreateMap.html"><div class="barblock "><p class="headerfont">地图<br>Map</p></div></a>
+            <a href="2RoutinePlan.html"><div class="barblock"><p class="headerfont">路径<br>Route</p></div></a>
+            <a href="3AutoDrive.html"><div class="barblock "><p class="headerfont">巡航<br>Cruise</p></div></a>
+             <a href="6Set.html"><img src="image/10.png" class="active1"></a>
+          
+            
+          </div>
+        </div>
+       <!--  //头部结束 -->
+
+<div class="maincontent">
+      
+      <img src="image/logo2.png" style="width:150px;">
+              <img src="image/logo3.jpg" style="width:160px;">
+            
+        <img src="image/intro.jpg"  id="test" style="margin:0 auto;    width: 1063px;display: inherit;" >
+
+
+        
+
+       </div>
+       <script type="text/javascript">
+       var  mousedown_flag=0;
+       var  mousemove_flag=0;
+       var  mouseup_flag=0;
+function mouseDown(){
+       	mousedown_flag=1;
+       	mouseup_flag=0;
+       	console.log("按下");
+       }
+       function mouseUp(){
+       	mouseup_flag=1;
+       		mousedown_flag=0;
+       		console.log("松开");
+       }
+       function mouseMove(){
+       	mousemove_flag=1;
+       //	
+       if(mousedown_flag==1){
+       	console.log("移动");
+       }
+       }
+     
+      
+       </script>
+      
+
+
+
+
+
+
+          <div class="bottomLine"><div class="cpright"> ● Copyright 2016 power by Chaoyingkeji UESTC<img src="image/footer.jpg"></div></div>
+          
+        </body>
+
+        </html>

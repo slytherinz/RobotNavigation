@@ -1,0 +1,810 @@
+html{
+  height: 100%;
+}
+body{
+	font-family: "Microsoft Yahei",Tahoma,Helvetica,Arial,"SimSun",sans-serif;
+	font-weight: normal;
+
+    background-color: #ffffff;
+    margin: 0;
+      position: relative;
+      min-height: 100%;
+      
+
+
+}
+.banner{
+     height: 100px;
+     background: url(image/banner.jpg) no-repeat 0px 0px;
+
+}
+.header{
+             background: -webkit-linear-gradient(#6d6d6d, #040404); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#6d6d6d, #040404); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#6d6d6d, #040404); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#6d6d6d, #040404); /* 标准的语法（必须放在最后） */
+     height: 100px;
+
+
+}
+.jianbian_button{
+
+    padding-left: 0px;
+    margin-left: 51px;
+    position: relative;
+    bottom: 16px;
+    font-weight: bold;
+    font-size: 14px;
+    color: rgba(58, 56, 63, 0.8);
+    height: 30px;
+   background: -webkit-linear-gradient(#ffffff, #e6e6e6); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#ffffff, #e6e6e6); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#ffffff, #e6e6e6); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#ffffff, #e6e6e6); /* 标准的语法（必须放在最后） */
+     -moz-border-radius: 15px;      /* Gecko browsers */
+    -webkit-border-radius: 15px;   /* Webkit browsers */
+    border-radius:15px;            /* W3C syntax */
+}
+.navbar{
+
+     position: absolute;
+     width: 622px;
+     height: 110px;
+       -moz-border-radius: 15px;      /* Gecko browsers */
+    -webkit-border-radius: 15px;   /* Webkit browsers */
+    border-radius:15px;            /* W3C syntax */
+        background: -webkit-linear-gradient(#ffffff, #e6e6e6); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#ffffff, #e6e6e6); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#ffffff, #e6e6e6); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#ffffff, #e6e6e6); /* 标准的语法（必须放在最后） */
+box-shadow: 1px 2px 8px 2px #cecece;
+    top: 40px;
+    z-index: 1111;
+    left: 40%;
+
+}
+.indexLogo{
+  display: none;
+  margin-top: 175px;
+    margin: 185px auto;
+    width: 460px;
+}
+.bottomLine{
+  height: 51px;
+  width: 100%;
+  background-color: #cccccc;
+      position: absolute;
+    bottom: 0;
+}
+.cpright{
+    font-size: 13px;
+    width: 1300px;
+    margin: 12px auto;
+    text-align: right;
+}
+
+.cpright img{
+  width: 119px;
+   
+    vertical-align: middle;
+    margin-left: 9px;
+}
+.barblock{
+
+     width: 90px;
+     height: 96px;
+     
+     color: black;
+         position: relative;
+    
+    text-align: center;
+        line-height: 78px;
+        display: inline-flex;
+           border-left: 1px solid #cecece;
+    margin-top: 7px;
+
+
+}
+.logo{
+  width: 150px;
+    float: left;
+    margin-left: 60px;
+    margin-top: 30px;
+}
+.active{
+
+        background: -webkit-linear-gradient(#e6e6e6, rgb(58, 56, 63)); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#e6e6e6, rgb(58, 56, 63)); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#e6e6e6, rgb(58, 56, 63)); /* Firefox 3.6 - 15 */
+
+       background: linear-gradient(#e6e6e6, rgb(58, 56, 63));
+    color: white;
+    height: 110px;
+    margin-right: -5px;
+    width: 94px;
+    top: -6px;
+
+}
+.headerfont{
+     font-size: 17px;
+    margin: 0px auto;
+    line-height: 21px;
+    margin-top: 42px;
+
+}
+.leftSide{
+  width: 320px;
+  display: inline-block;
+  margin-left: 15px;
+      vertical-align: top;
+
+}
+.loginWindow{
+  width: 310px;
+  height: 205px;
+  background-color: #e6e6e6;
+  -moz-border-radius: 15px;      /* Gecko browsers */
+    -webkit-border-radius: 15px;   /* Webkit browsers */
+    border-radius:15px;            /* W3C syntax */
+    margin-bottom: 20px;
+}
+.zhuangtaiWindow{
+  width: 310px;
+  height: 450px;
+  background-color: #e6e6e6;
+  -moz-border-radius: 15px;      /* Gecko browsers */
+    -webkit-border-radius: 15px;   /* Webkit browsers */
+    border-radius:15px;            /* W3C syntax */
+}
+.windowFont_head{
+     color: rgb(89, 89, 112);
+    font-size: 15px;
+    border-bottom: 2px solid #cccccc;
+    padding-top: 10px;
+    height: 24px;
+    text-align: center;
+}
+.windowFont{
+  color: rgb(89, 89, 112);
+    font-size: 12px;
+        line-height: 0px;
+}
+.window_neirong{
+  margin-left: 25px;
+  width: 283px;
+}
+.blueLink{
+  font-size: 12px;
+  color: blue;
+  text-decoration: none;
+  float: right;
+    margin-right: 33px;
+    padding-left: 6px;
+}
+.text{
+          width: 248px;
+    height: 20px;
+    background: url(image/input.png) no-repeat -3px;
+    color: #cccccc;
+    font-weight: bold;
+    border: none;
+    padding-top: 0px;
+    padding-left: 5px;
+}
+.robot_zhuangtai{
+      width: 16px;
+    margin: -2px 3px;
+}
+.zhuangtai_span{
+      float: right;
+    margin-right: 30px;
+    margin-top: 16px;
+}
+.DrakGrayWindow{
+  width: 920px;
+  background-color: #999999;
+    -moz-border-radius: 15px;      /* Gecko browsers */
+    -webkit-border-radius: 15px;   /* Webkit browsers */
+    border-radius:15px;            /* W3C syntax */
+    padding: 10px;
+        position: relative;
+        margin-bottom: 10px
+  
+}
+.jianbian{
+  width: 640px;
+  height: 30px;
+   background: -webkit-linear-gradient(#ffffff, #e6e6e6); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#ffffff, #e6e6e6); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#ffffff, #e6e6e6); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#ffffff, #e6e6e6); /* 标准的语法（必须放在最后） */
+     -moz-border-radius: 15px;      /* Gecko browsers */
+    -webkit-border-radius: 15px;   /* Webkit browsers */
+    border-radius:15px;            /* W3C syntax */
+    padding-left: 19px;
+        margin-bottom: 15px;
+}
+.jianbian p{
+    color: rgb(89, 89, 112);
+    font-size: 13px;
+    line-height: 29px;
+    font-weight: bold;
+        display: inline;
+}
+.zuogang{
+      border-left: 2px solid #757474;
+    margin-left: 30px;
+    padding-left: 35px;
+    
+}
+.mima{
+  width: 145px;
+  border: 1px solid #cccccc;
+     
+    margin-right: 30px;
+    padding-left: 10px;
+}
+.whiteBack{
+  background-color: white;
+  -moz-border-radius: 15px;      /* Gecko browsers */
+    -webkit-border-radius: 15px;   /* Webkit browsers */
+    border-radius:15px;            /* W3C syntax */
+        margin-top: 10px;
+}
+.whiteBack1{
+  width: 220px;
+  height: 200px;
+    background-color: white;
+  -moz-border-radius: 15px;      /* Gecko browsers */
+    -webkit-border-radius: 15px;   /* Webkit browsers */
+    border-radius:15px;            /* W3C syntax */
+        display: inline-block;
+    margin-right: 5px;
+    
+}
+.maincontent{
+    
+      width: 1280px;
+      
+       position: relative;
+      height: 100%;
+          padding-bottom: 100px;
+    margin: 0 auto;
+        box-shadow: 1px 2px 8px 2px #cecece;
+
+
+}
+.mt8{
+  margin-top: 8px;
+}
+
+.youceFont{
+  font-size: 12px;
+  color: white;
+      margin-left: 138px;
+}
+.fangxiang{
+      position: fixed;
+    z-index: 10000;
+    left: 1165px;
+    top: 248px;
+
+}
+.right_arrow{
+-ms-transform:rotate(90deg); /* IE 9 */
+    -moz-transform:rotate(90deg); /* Firefox */
+    -webkit-transform:rotate(90deg); /* Safari and Chrome */
+    -o-transform:rotate(90deg); /* Opera */
+        width: 40px;
+            position: absolute;
+    left: 100px;
+    top: 59px;
+}
+.left_arrow{
+-ms-transform:rotate(270deg); /* IE 9 */
+    -moz-transform:rotate(270deg); /* Firefox */
+    -webkit-transform:rotate(270deg); /* Safari and Chrome */
+    -o-transform:rotate(270deg); /* Opera */
+        width: 40px;
+            position: absolute;
+    left: 11px;
+    top: 59px;
+
+}
+.up_arrow{
+    width: 40px;
+        position: absolute;
+    left: 55px;
+    top: 14px;
+}
+.down_arrow{
+  -ms-transform:rotate(180deg); /* IE 9 */
+    -moz-transform:rotate(180deg); /* Firefox */
+    -webkit-transform:rotate(180deg); /* Safari and Chrome */
+    -o-transform:rotate(180deg); /* Opera */
+        width: 40px;
+            position: absolute;
+    left: 55px;
+    top: 104px;
+}
+.menu{
+    background-color: #f7f7f7;
+    width:198px;
+   display: inline-block;
+    margin-left: 0px;
+    height: 1000px;
+    
+
+
+}
+
+.basicInfo{
+  background-color: white;
+         -moz-border-radius: 15px;      /* Gecko browsers */
+    -webkit-border-radius: 15px;   /* Webkit browsers */
+    border-radius:15px;            /* W3C syntax */
+    width: 250px;
+        position: absolute;
+    top: 10px;
+    right: 12px;
+    height:160px;
+            overflow-x: hidden;
+    overflow-y: auto;
+}
+.active1{
+    width: 88px;
+    height: 111px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    bottom: 6px;
+    margin-left: -5px;
+}
+.basicInfo p{
+      font-size: 12px;
+    line-height: 9px;
+    margin-left: 14px;
+    color: black;
+}
+
+.menuhead{
+	  margin-bottom: -25px;
+    padding-top: 5px;
+}
+.menuhead p{
+     font-size: 18px;
+     color: black;
+     font-weight: bold;
+     letter-spacing: 10px
+
+
+}
+.menuhead h5{
+	font-weight: bold;
+	color: #05BA8E;
+font-size: 31px;
+    margin-top: -51px;
+}
+.menu_content{
+	
+	    margin-left: 34px;
+    margin-top: -10px;
+}
+.menufont{
+
+	margin-top: 25px;
+    color: black;
+  text-decoration: none;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.menufont p{
+
+}
+.map{
+	    width: 930px;
+    display: inline-block;
+        margin-top: 92px;
+}
+select{
+  border: none;
+  
+    font-size: 14px;
+        margin-top: 6px;
+}
+
+.info{
+
+	height: 30px;
+	background-color: #05BA8E;
+	
+}
+
+#mapImage{
+
+	width: 900px;
+	position: relative;
+  /*display: inline;*/
+}
+.mapcontent p{
+     font-size: 16px;
+     color: black;
+      
+     letter-spacing: 5px
+
+
+}
+.navbar a{
+
+	color: black;
+	text-decoration: none;
+}
+
+.mapcontain{
+
+width: 900px;
+    background-color: white;
+    
+    height: 760px;
+    overflow: hidden;
+    position: relative;
+             -moz-border-radius: 15px;      /* Gecko browsers */
+    -webkit-border-radius: 15px;   /* Webkit browsers */
+    border-radius:15px;            /* W3C syntax */
+  
+}
+.robot_position{
+  position: absolute;
+
+}
+.robot_position img{
+  width: 20px;
+}
+.robot_position p{
+  font-size: 12px;
+  color: black;
+      line-height: 0px;
+    margin-left: -20px;
+    margin-top: 4px;
+}
+.robot_shuxing{
+  width: 293px;
+  height: 200px;
+  display: inline-block;
+  vertical-align: top;
+}
+.chuanganqi{
+  display: inline-block;
+      height: 165px;
+    margin-right: 7px;
+}
+
+.robot_info_font{
+      font-size: 12px;
+    display: inline-block;
+    color: white;
+    margin-left: 17px;
+}
+
+
+.zoomButton {border: 0; cursor: pointer;}
+.zoomableContainer {background-image: url("images/transparent.png");}
+
+
+.marker{
+
+
+    
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    z-index: 100;
+    visibility: hidden;
+}
+.markerImage{
+    width: 25px;
+    height: 25px;
+}
+
+.floatWindow{
+
+  width: 200px;
+   height: 220px;
+   position: absolute;
+     background-color: #e6e6e6;
+   border-radius: 10px;z-index: 888;
+       box-shadow: 0 0 6px #cecece;
+    -webkit-box-shadow: 0 0 6px #cecece;
+    -moz-box-shadow: 0 0 6px #cecece;
+    
+        left: 13px;
+    top: 18px;
+        text-align: center;
+ 
+
+
+}
+
+
+.fs14{
+        font-size: 14px !important;
+    display: inline-block;
+    margin-right: 9px;
+}
+.fs13{
+  font-size: 13px !important;
+}
+.submit{
+    width: 50px;
+    height: 23px;
+    background-color: #05BA8E;
+       border-radius: 10px;
+       z-index: 888;
+
+    font-size: 13px;
+    color:white;
+    border:none;
+        margin-left: 90px;
+ 
+
+}
+
+
+.rightMenu{
+       width: 87px;
+   height: 75px;
+   position: absolute;
+   background-color: white;
+   border-radius: 10px;z-index: 888;
+       box-shadow: 0 0 6px #cecece;
+    -webkit-box-shadow: 0 0 6px #cecece;
+    -moz-box-shadow: 0 0 6px #cecece;
+    padding-left: 10px;
+        left: 13px;
+    top: 18px;
+    visibility: hidden;
+
+
+
+}
+.deletePoint{
+  cursor: pointer;
+      width: 82px;
+    height: 19px;
+}
+.deletePoint:hover{
+    background-color: #05BA8E;
+    color:white;
+
+}
+.changeXML{
+  cursor: pointer;
+        width: 82px;
+    height: 19px;
+}
+.changeXML:hover{
+    background-color: #05BA8E;
+    color:white;
+
+}
+#testMark{
+ top: 100px;
+    left: 100px;
+
+}
+.line {  
+    position:absolute;  
+    z-index:3000;  
+    width:10px;  
+    height:10px;  
+    font-size:1px;  
+    background-color:#0000FF;  
+    overflow:hidden;  
+}  
+/*#container{
+      width: 400px;
+    height: 400px;
+    position: relative;
+    z-index: 300;
+        margin-left: 50px;
+}*/
+#canvas{
+  position: absolute;
+  z-index: 99;
+  display: none;
+}
+.imageCollect{
+      
+    margin-left: -32px;
+}
+.imageCollect img{
+  width: 200px;
+}
+.robotIcon{
+      position: absolute;
+    z-index: 100;
+    top:0px;
+    left: 0px;
+
+}
+.robotIcon img{
+  width: 40px;
+}
+table {
+    font-family: verdana,arial,sans-serif;
+    font-size:14px;
+    color:#333333;
+    border-width: 1px;
+    border-color: #666666;
+    border-collapse: collapse;
+    text-align: center;
+}
+table th {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #666666;
+    background-color: #dedede;
+}
+table td {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #666666;
+    background-color: #ffffff;
+    height: 30px;
+}
+table a{
+  text-decoration: none;
+  color: black;
+}
+table  .tableActive{
+  background-color: #05BA8E;
+}
+
+
+/* 登陆界面 */
+.loginoutset{
+  width: 565px;
+  height: 285px;
+  
+  box-shadow: 0 0 14px #757474;
+    -webkit-box-shadow: 0 0 14px #757474;
+    -moz-box-shadow: 0 0 14px #757474;
+   
+    margin:0 auto;
+    border-radius: 5px;
+     behavior: url(js/PIE.htc);
+     margin-top: 200px;
+     position: absolute;
+    
+}
+.logininset{
+    background-color: #eee;
+  box-shadow: 0 0 14px #5FCE8F inset;
+    -webkit-box-shadow: 0 0 14px #5FCE8F inset;
+    -moz-box-shadow: 0 0 14px #5FCE8F inset;
+   width: 565px;
+  height: 285px;
+   
+    border-radius: 5px;
+    position: relative;
+    behavior: url(js/PIE.htc);
+
+}
+.logintitle{
+  width: 520px;
+height: 30px;
+border-bottom: 1px solid #D8D2D2;
+margin: 0 auto;
+padding-top: 15px;
+padding-left: 30px;
+}
+.logintitle p{
+  color:#888888;
+  font-size: 18px;
+  font-weight: bold;
+      margin-top: 0px;
+
+}
+.loginBlock{
+   margin-left: 40px;
+margin-top: 15px;
+
+}
+.loginBlock img{
+  position: relative;
+top: 18px;
+margin-right: 15px;
+}
+.loginBlock p{
+  color:#888888;
+  font-weight: bold;
+  font-size: 14px;
+  display: inline-block;
+}
+
+.loginBlock select{
+  width: 367px;
+height: 46px;
+border-radius: 5px;
+behavior: url(../js/PIE.htc);
+background-color: #eeeeee;
+border: 1px solid #999999;
+outline: none;
+margin-left: 5px;
+}
+.loginButton1{
+  width: 200px;
+height: 30px;
+background: #8dba55;
+border-radius: 5px;
+behavior: url(../js/PIE.htc);
+text-align: center;
+color: white;
+font-size: 18px;
+display: inline-block;
+padding-top: 10px;
+margin-left: 183px;
+margin-top: 18px;
+font-weight: bold;
+}
+.loginButton2{
+  width: 130px;
+height: 30px;
+background: #bab655;
+border-radius: 5px;
+behavior: url(../js/PIE.htc);
+text-align: center;
+color: white;
+font-size: 18px;
+display: inline-block;
+padding-top: 10px;
+margin-left: 33px;
+margin-top: 18px;
+font-weight: bold;
+}
+#loginin{
+  /* display: none;  */
+}
+#signin{
+
+
+}
+.shadow{
+  position: absolute;
+z-index: -1;
+bottom: -107px;
+left: -31%;
+}
+#signin2{
+  display: none;
+}
+.floatInput{
+  
+border-radius: 10px;
+behavior: url(js/PIE.htc);
+border: 1px solid #999999;
+outline: none;
+padding-left: 10px;
+margin-left: 5px;
+}
+
+.floatZhuce {
+        position: fixed;
+    top: 25%;
+        width: 350px;
+    height: 500px;
+    text-align: center;
+    padding-top: 11px;
+    border-radius: 10px;
+    left: 37%;
+    behavior: url(js/PIE.htc);
+    background-color: white;
+    z-index: 888;
+    box-shadow: 0 0 6px #999999;
+    -webkit-box-shadow: 0 0 6px #999999;
+    -moz-box-shadow: 0 0 6px #999999;
+
+  }

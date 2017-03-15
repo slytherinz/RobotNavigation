@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mybatis="http://mybatis.org/schema/mybatis-spring"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+
+       http://mybatis.org/schema/mybatis-spring
+       http://mybatis.org/schema/mybatis-spring.xsd
+
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd
+
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <context:component-scan base-package="com.ssm"/>
+    <aop:aspectj-autoproxy/>
+    <!--引入数据库配置文件,目前没有解决数据库参数使用配置的问题 -->
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <!--
+        <property name="locations">
+            <list>
+                <value>config/db.properties</value>
+            </list>
+        </property>
+        -->
+    </bean>
+
+    <!-- 注册数据源一：C3P0内置数据源 -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="com.mysql.jdbc.Driver"/>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/sd_robot_navigater1?characterEncoding=utf-8"/>
+        <property name="user" value="root"/>
+        <property name="password" value="135790"/>
+        <property name="initialPoolSize" value="3" />
+        <!--  连接的最大空闲时间  单位秒 默认是0-代表永远不会断开连接  超过设定时间的空闲连接将会断开   -->
+        <property name="maxIdleTime" value="30"/>
+        <!-- 连接池中拥有的最大连接数 默认值为15个   -->
+        <property name="maxPoolSize" value="20"/>
+        <!-- 连接池中保持的最小连接数  默认值为3个 -->
+        <property name="minPoolSize" value="3"/>
+        <!-- 将连接池的连接数保持在minpoolsize 必须小于maxIdleTime设置  默认值为0代表不处理  单位秒   -->
+        <property name="maxIdleTimeExcessConnections" value="15"/>
+    </bean>
+
+    <!--mybatis配置部分-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" p:dataSource-ref="dataSource">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="configLocation" value="classpath:config/mybatisConfig.xml"/>
+    </bean>
+
+    <bean id="mapper" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!--使用包扫描的方式扫描Mapper接口-->
+        <property name="basePackage" value="com.ssm.dao"/>
+        <property name="annotationClass" value="org.springframework.stereotype.Repository"/>
+    </bean>
+    <!--jdbc管理事务-->
+<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+<property name="dataSource" ref="dataSource"/>
+</bean>
+        <!--启用支持annotation注解方式事务管理-->
+<tx:annotation-driven transaction-manager="transactionManager"/>
+
+</beans>
