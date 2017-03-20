@@ -19,7 +19,7 @@
               var routineNum=3;//系统默认存储了3条路径
                 var flag_deletePoint=0;//允许删点
                 var mapNum=1;
-                var tempData1=[],tempData2=[];
+                var tempData1=[],tempData2=[],tempData3=[];
 
                 //路径规划的数据
 
@@ -34,19 +34,19 @@
                                $(".mapcontain").unbind('mouseup', setPoint());  //移出打点功能
                                 $(".mapcontain").unbind('mousewheel'); 
                                 });*/
+
+
+
                    var loadData=
                    [
-                  // {id:0,L:0,T:0,pageX:30,pageY:60,U:1,C:2,D:2},
+                  //,
                   // {id:1,L:0,T:0,pageX:100,pageY:80,U:1,C:2,D:2},
                   // {id:2,L:0,T:0,pageX:150,pageY:100,U:1,C:0,D:2,W:3},
                   // {id:3,L:0,T:0,pageX:400,pageY:600,U:0,C:1,D:3,W:0},
                   // {id:4,L:0,T:0,pageX:600,pageY:300,U:1,C:0,D:1,W:1},
                   // {id:5,L:0,T:0,pageX:700,pageY:500,U:1,C:1,D:2,W:0}
                    ];
-                   var  loadLine=
-                  [
-                  // [0,1],[2,3],[0,3],[2,5],[3,4]
-                   ];
+                   var  loadLine=new Array();
 
                   //生成路径时服务器传回来的数组
                   // var testRoutine=
@@ -84,63 +84,88 @@
                 //当data不为0时，给map加载点
                    window.onload = function(){
 
+
+
+                       $.ajax({
+                           type:'GET',
+                           url:"/showMap",
+                           success:function(data){
+                               console.log(data);
+                               for(d=0;d<data.object.lineData.length;d++){
+                                   loadLine[d]=new Array();
+                                   loadLine[d][0]=data.object.lineData[d].start;
+                                   loadLine[d][1]=data.object.lineData[d].end;
+                               }
+                               console.log(loadLine);
+                               $.each(data.object.pointsData,function(i,item){
+                                   loadData.push( {'id':item.id,'L':0,'T':0,'pageX':item.x,'pageY':item.y,'U':item.remain||0,'C':item.lift||0,'D':item.direction||0});
+                               });
+                               console.log(loadData);
+
+                               if (loadData!=""){
+                                   console.log(222);
+                                   flag_deletePoint=1;//不允许删点
+                                   $.each(loadData, function(i, row){
+
+                                       createMark(row);
+
+                                       tArray[row.id]=new Array();
+                                       tArray[row.id][0]=1;
+                                       tArray[row.id][1]=0;
+                                       tArray[row.id][2]=0;
+                                       tArray[row.id][3]=row.pageX;
+                                       tArray[row.id][4]=row.pageY;
+                                       tArray[row.id][5]=row.T;
+                                       tArray[row.id][6]=row.C;
+                                       tArray[row.id][7]=row.D;
+
+                                       tArray[row.id][8]=row.id;
+
+
+
+
+                                       $(".floatWindow").css("visibility","hidden");
+                                       $(".floatWindow").mousedown(function(e){
+                                           e.stopPropagation();});
+
+                                       $(".deletePoint").mousedown(function(e){
+                                           e.stopPropagation();
+                                       });
+                                       $(".changeXML").mousedown(function(e){
+                                           e.stopPropagation();
+                                       });
+
+
+                                   });
+
+                                   if(loadData[0].T==1){    $(".marker[rel=0]").find("select[name='time']").val("time1");}
+                                   if(loadData[0].T==2){    $(".marker[rel=0]").find("select[name='time']").val("time2");}
+                                   if(loadData[0].T==3){    $(".marker[rel=0]").find("select[name='time']").val("time3");}
+                                   if(loadData[0].C==1){   $(".marker[rel=0]").find("select[name='camera']").val("camera1");}
+                                   if(loadData[0].C==2){   $(".marker[rel=0]").find("select[name='camera']").val("camera2");}
+                                   if(loadData[0].C==3){   $(".marker[rel=0]").find("select[name='camera']").val("camera3");}
+                                   if(loadData[0].D==1){     $(".marker[rel=0]").find("select[name='direction']").val("direction1"); }
+                                   if(loadData[0].D==2){     $(".marker[rel=0]").find("select[name='direction']").val("direction2"); }
+                                   if(loadData[0].D==3){     $(".marker[rel=0]").find("select[name='direction']").val("direction3"); }
+
+
+                               }//loadData end
+                               if(loadLine!=0){
+                                   reDraw();
+                               }
+
+                           }
+                       });
+
                      var obj=document.getElementById("mapImage");
 
                                                        obj.style.webkitTransform="translate3d(0px,0px,0px) scale3d(1,1,1)";
 
-                    if (loadData!=""){
-                        flag_deletePoint=1;//不允许删点
-                                $.each(loadData, function(i, row){
-                                  
-                           createMark(row);
-                          
-                           tArray[row.id]=new Array();
-                           tArray[row.id][0]=1;
-                           tArray[row.id][1]=0;
-                           tArray[row.id][2]=0;
-                           tArray[row.id][3]=row.pageX;
-                           tArray[row.id][4]=row.pageY;
-                           tArray[row.id][5]=row.T;
-                           tArray[row.id][6]=row.C;
-                           tArray[row.id][7]=row.D;
-                          
-                           tArray[row.id][8]=row.id;
-
-                          
-
-                         
-                          $(".floatWindow").css("visibility","hidden");
-                          $(".floatWindow").mousedown(function(e){
-                           e.stopPropagation();});
-
-                        $(".deletePoint").mousedown(function(e){
-                           e.stopPropagation();
-                        });
-                        $(".changeXML").mousedown(function(e){
-                           e.stopPropagation();
-                        });
-                        
-
-                         });
-
-                          if(loadData[0].T==1){    $(".marker[rel=0]").find("select[name='time']").val("time1");}
-                           if(loadData[0].T==2){    $(".marker[rel=0]").find("select[name='time']").val("time2");}
-                            if(loadData[0].T==3){    $(".marker[rel=0]").find("select[name='time']").val("time3");}
-                             if(loadData[0].C==1){   $(".marker[rel=0]").find("select[name='camera']").val("camera1");}
-                              if(loadData[0].C==2){   $(".marker[rel=0]").find("select[name='camera']").val("camera2");}
-                               if(loadData[0].C==3){   $(".marker[rel=0]").find("select[name='camera']").val("camera3");}
-                               if(loadData[0].D==1){     $(".marker[rel=0]").find("select[name='direction']").val("direction1"); }
-                               if(loadData[0].D==2){     $(".marker[rel=0]").find("select[name='direction']").val("direction2"); }
-                               if(loadData[0].D==3){     $(".marker[rel=0]").find("select[name='direction']").val("direction3"); }
-                      
-                         
-                          }
 
 
-                          if(loadLine!=0){
-                            reDraw();
-                          }
-                            docuPage= document.title
+
+
+                            docuPage= document.title;
                             if(docuPage=="路径"){
                                 $(".mapcontain").unbind('mouseup', setPoint());  //移出打点功能
                                 /*$(".mapcontain").unbind('mousewheel'); */
@@ -758,25 +783,37 @@ $("#chooseMiddlePoint").click(function(e) {
 //选择中间点结束
 
 $("#createRoutine").click(function(e) {
-            // alert(rArray);
-            if(testRoutine!=0){
-              $.each(testRoutine,function(i,row){
-                              $("#canvas").show();
-                              var cPoint1=row[0];
-                              var cPoint2=row[1];
-                              var draw_temp_x1=parseInt($(".marker[rel=" + cPoint1 +"]").css("left"))+10;
-                              var draw_temp_y1=parseInt($(".marker[rel=" + cPoint1 +"]").css("top"))+18;
-                              var draw_temp_x2=parseInt($(".marker[rel=" + cPoint2 +"]").css("left"))+10;
-                              var draw_temp_y2=parseInt($(".marker[rel=" + cPoint2 +"]").css("top"))+18;
-                   
-                              drawRed(draw_temp_x1,draw_temp_y1,draw_temp_x2,draw_temp_y2);
-                              
+             console.log(rArray);
 
-                            });
+    $.ajax({
+        type:'POST',
+        url:"/generatepath",
+        contentType: "application/json",
+        dataType:"json",
+        data:JSON.stringify(rArray),
+        success:function(data){
+            console.log(data);
+            if(data!=0){
+                $.each(data,function(i,row){
+                    $("#canvas").show();
+                    var cPoint1=row[0];
+                    var cPoint2=row[1];
+                    var draw_temp_x1=parseInt($(".marker[rel=" + cPoint1 +"]").css("left"))+10;
+                    var draw_temp_y1=parseInt($(".marker[rel=" + cPoint1 +"]").css("top"))+18;
+                    var draw_temp_x2=parseInt($(".marker[rel=" + cPoint2 +"]").css("left"))+10;
+                    var draw_temp_y2=parseInt($(".marker[rel=" + cPoint2 +"]").css("top"))+18;
+
+                    drawRed(draw_temp_x1,draw_temp_y1,draw_temp_x2,draw_temp_y2);
+
+
+                });
             }
-              else{
+            else{
                 alert("无法生成路径");
-              }
+            }
+        }
+    })
+
             
  }); //生成路径结束
 

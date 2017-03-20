@@ -150,7 +150,7 @@ public class MapController {
      * @param routePointList
      * @return
      */
-    @RequestMapping(value = "/savePath" ,method = RequestMethod.POST)
+    @RequestMapping(value = "/savePath" ,method = RequestMethod.POST,produces = "text/html;charset=UTF-8")
     @ResponseBody
     public Response savePath(@RequestBody LineIndex[] routePointList){
         if(navMapService.savePath(routePointList)){

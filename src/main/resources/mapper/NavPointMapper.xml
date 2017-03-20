@@ -15,7 +15,7 @@
     <select id="selectPointById" parameterType="int" resultMap="navPointResultMap">
         SELECT * FROM map1_station_point WHERE id = #{id}
     </select>
-    <select id="selectAllPoints">
+    <select id="selectAllPoints" resultMap="navPointResultMap">
         SELECT * FROM map1_station_point
     </select>
     <delete id="deletePointById" parameterType="int">

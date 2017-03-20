@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
@@ -41,7 +42,8 @@ public class AdminController {
         admin = adminService.checkLogin(admin);
         if(admin != null){
             session.setAttribute("admin",admin);
-            return new Response(Status.SUCCESS);
+            msg = "the admin login success";
+            return new Response(Status.SUCCESS,msg);
         }
         else{
             msg = "The username is not exist or password is error";
@@ -56,14 +58,14 @@ public class AdminController {
      * @param session
      * @return
      */
-    @RequestMapping(value = "/psw",method = RequestMethod.PATCH)
+    @RequestMapping(value = "/psw",method = RequestMethod.POST)
     @ResponseBody
-    public Response setpsw(@RequestParam String oldPassword,@RequestParam String newPassword,HttpSession session){
+    public Response setpsw(@RequestParam(value = "oldPassword",required = false) String oldPassword, @RequestParam(value = "newPassword",required = false) String newPassword, HttpSession session){
         //获得当前登录用户
         Admin admin = (Admin) session.getAttribute("admin");
-        String msg = adminService.setPassword(oldPassword,newPassword,admin.getId());
+        String msg = adminService.setPassword(oldPassword,newPassword,1);
         if(msg.equals("success")){
-            return new Response(Status.SUCCESS);
+            return new Response(Status.SUCCESS,msg);
         }
         else
             return new Response(Status.ERROR,msg);

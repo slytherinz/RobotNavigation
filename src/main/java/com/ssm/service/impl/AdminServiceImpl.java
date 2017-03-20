@@ -72,8 +72,9 @@ public class AdminServiceImpl implements AdminService{
         if(!admin.getPassword().equals(oldPassword)){
             return "oldpassword is wrong";
         }
+        admin.setPassword(newPassword);
         try {
-            adminDao.setPassword(newPassword, id);
+            adminDao.setPassword(admin);
             return "success";
         }catch (Exception e){
             return "error";

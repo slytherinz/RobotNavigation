@@ -7,9 +7,9 @@
         <result property="nid" column="nid"/>
 
     </resultMap>
-    <insert id="insertRoutePoint" useGeneratedKeys="true" parameterType="java.util.List">
+    <insert id="insertRoutePoint" useGeneratedKeys="true" >
         INSERT INTO map1_station_routine1 (pid,nid) VALUES
-        <foreach collection="routelist" item="item" index="index" separator=",">
+        <foreach collection="array" item="item" index="index" separator=",">
             (#{item.start},#{item.end})
         </foreach>
     </insert>

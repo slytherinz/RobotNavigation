@@ -17,5 +17,5 @@ public interface AdminDao {
     //新增用户
     public void saveAdmin(Admin admin);
     //修改密码
-    public void setPassword(String password,int id);
+    public void setPassword(Admin admin);
 }

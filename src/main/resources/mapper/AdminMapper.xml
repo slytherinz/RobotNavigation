@@ -16,7 +16,19 @@
 
 
     </resultMap>
-    <select id="findByUsername" parameterType="String" resultType="admin">
+    <select id="findByUsername" parameterType="String" resultMap="adminResultMap">
         SELECT * FROM admin WHERE username = #{username}
     </select>
+    <select id="findByUsernameAndPassword" resultMap="adminResultMap">
+        SELECT * FROM admin WHERE username = #{username} AND password = #{password}
+    </select>
+    <select id="findById" parameterType="int" resultMap="adminResultMap">
+        SELECT * FROM admin WHERE id = #{id}
+    </select>
+    <insert id="saveAdmin" parameterType="admin">
+        INSERT INTO admin (username,password,realname,gendar,department,position,tel,phoneNum,role_id,add_time) VALUES (#{username},#{password},#{realname},#{gendar},#{department},#{position},#{tel},#{phoneNum},#{roleId},#{addTime})
+    </insert>
+    <update id="setPassword" parameterType="admin">
+        UPDATE admin SET password = #{password} WHERE id = #{id}
+    </update>
 </mapper>
